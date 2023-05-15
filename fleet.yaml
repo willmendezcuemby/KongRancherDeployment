@@ -6,6 +6,7 @@ helm:
   version: 2.20.2  # Specify the version of Kong chart you want to use
   values:
     ingressController:
+      installCRDs: false
       enabled: true
     env:
       database: "off"
