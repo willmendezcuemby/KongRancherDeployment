@@ -1,0 +1,17 @@
+defaultNamespace: kong
+helm:
+  releaseName: kong
+  repo: https://charts.konghq.com
+  chart: kong
+  version: 2.20.2  # Specify the version of Kong chart you want to use
+  values:
+    ingressController:
+      enabled: true
+    env:
+      database: "off"
+    admin:
+      enabled: true
+      http:
+        enabled: false
+    rbac:
+      create: false
