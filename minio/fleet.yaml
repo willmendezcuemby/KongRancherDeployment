@@ -1,0 +1,19 @@
+defaultNamespace: minio
+helm:
+  releaseName: minio
+  repo: https://helm.min.io/
+  chart: minio
+  version: "8.0.10"  # You might want to adjust the version number
+  values:
+    mode: standalone
+    accessKey: "YOURACCESSKEY"
+    secretKey: "YOURSECRETKEY"
+    resources: 
+      requests:
+        memory: 512Mi
+        cpu: 250m
+    persistence:
+      enabled: false
+    service:
+      type: ClusterIP
+      port: 9000
