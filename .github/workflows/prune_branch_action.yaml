@@ -1,0 +1,25 @@
+name: 🧹 Prune Merged Branch
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    steps:
+      - name: 🚀 Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: 🗑️ Delete Branch
+        run: |
+          echo "Deleting ${GITHUB_HEAD_REF} 🍃"
+          git push origin --delete ${GITHUB_HEAD_REF}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
