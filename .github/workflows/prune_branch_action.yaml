@@ -22,4 +22,4 @@ jobs:
           echo "Deleting ${GITHUB_HEAD_REF} 🍃"
           git push origin --delete ${GITHUB_HEAD_REF}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN}}
